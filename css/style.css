@@ -1610,6 +1610,90 @@ justify-content:center;
   margin: 0;
 }
 
+
+
+/*==================================================
+CTA PROGRAMA COMPETITIVO
+==================================================*/
+
+.cta-programa{
+  background:var(--lime);
+  padding:70px 0;
+}
+
+.cta-programa__inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:60px;
+  flex-wrap:wrap;
+}
+
+.cta-programa__eyebrow{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:rgba(0,0,0,.6);
+  margin-bottom:12px;
+}
+
+.cta-programa__title{
+  font-family:var(--font-display);
+  font-size:clamp(36px,5vw,64px);
+  line-height:.95;
+  text-transform:uppercase;
+  margin:0;
+      color: var(--black);
+}
+
+.cta-programa__title span{
+  color:var(--orange);
+}
+
+.cta-programa__tagline{
+  margin-top:18px;
+  font-size:18px;
+  color:rgba(0,0,0,.75);
+}
+
+.cta-programa__price{
+  text-align:right;
+      color: var(--black);
+}
+
+.cta-programa__price span{
+  display:block;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:10px;
+}
+
+.cta-programa__price strong{
+  display:block;
+  font-family:var(--font-display);
+  font-size:clamp(42px,5vw,45px);
+  line-height:1;
+  margin-bottom:8px;
+      color: var(--black);
+}
+
+.cta-programa__price small{
+  display:block;
+  margin-bottom:28px;
+  color:rgba(0,0,0,.65);
+}
+
+@media (max-width:900px){
+
+  .cta-programa__price{
+    text-align:left;
+  }
+
+}
+
+
+
 /* =========================================================
    FOOTER
    ========================================================= */
@@ -4919,3 +5003,5 @@ max-width:none;
   from{transform:translateX(-120%);}
   to{transform:translateX(340%);}
 }
+
+
