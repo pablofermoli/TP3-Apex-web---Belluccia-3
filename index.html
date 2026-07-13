@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APEX — Sim Racing Academy</title>
+  <meta name="description" content="La academia donde el Sim Racing se convierte en una carrera deportiva real. Coaching profesional, telemetría, preparación mental y competición." />
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+   <!-- fevicon -->
+      <link rel="icon" href="images/fevicom.png" type="image/gif" />
+</head>
+<body>
+
+
+<div class="page-loader" id="pageLoader">
+  <img
+    src="images/logo_apex.png"
+    alt="APEX Sim Racing Academy"
+    class="page-loader__logo"
+  >
+  <div class="page-loader__bar"></div>
+</div>
+
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+        <a href="index.html" class="logo">
+         <img src="images/logo_apex.png" alt="APEX Sim Racing Academy">
+        </a>
+    
+
+      
+
+      <nav class="nav" id="nav">
+        <a href="#academia" class="nav__link">La Academia</a>
+        <a href="#programas" class="nav__link">Cursos</a>
+        <a href="#history" class="nav__link">Nosotros</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+      </nav>
+
+      <a href="#programas" class="btn btn--lime btn--nav">Iniciar Carrera <span class="arrow">→</span></a>
+
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+       <!-- ===== REEMPLAZAR ESTE BLOQUE EN TU HTML ===== -->
+    <div class="hero__bg">
+      <video autoplay muted loop playsinline class="hero__video">
+        <source src="video/video_hero.mp4" type="video/mp4" />
+        Tu navegador no soporta videos nativos.
+      </video>
+      <div class="hero__scrim"></div>
+    </div>
+    <!-- ============================================== -->
+
+    <div class="hero__frame-marks" aria-hidden="true">
+      <span class="corner corner--tl">A_01</span>
+      <span class="corner corner--tr">EST. 2025</span>
+    </div>
+
+    <div class="container hero__content">
+      <p class="eyebrow eyebrow--light">Sim Racing • Driver Academy • Esports</p>
+      <h1 class="hero__title">
+        Más que un<br />
+        simulador<br />
+        <span class="text-lime">Es pilotaje</span>
+      </h1>
+      <p class="hero__desc">
+        La academia donde el Sim Racing se convierte en una carrera deportiva real.
+      </p>
+
+ <div class="hero-detalle__stats">
+
+      <div class="stat-card">
+        <img src="images/icono_a.png" alt="">
+        <strong>12</strong>
+        <span>Semanas</span>
+      </div>
+
+      <div class="stat-card">
+        <img src="images/icono_b.png" alt="">
+        <strong>48+</strong>
+        <span>Horas</span>
+      </div>
+
+      <div class="stat-card">
+        <img src="images/icono_c.png" alt="">
+        <strong>Nivel</strong>
+        <span>Avanzado</span>
+      </div>
+
+      <div class="stat-card">
+        <img src="images/icono_d.png" alt="">
+        <strong>Certificado</strong>
+        <span>APEX</span>
+      </div>
+
+    </div>
+
+      <div class="hero__actions">
+        <a href="#programas" class="btn btn--lime">Comenzar ya <span class="arrow">→</span></a>
+        <a href="detalle.html" class="btn btn--ghost">Ver programa</a>
+      </div>
+    </div>
+
+    <button class="scroll-cue" id="scrollCue" aria-label="Bajar a la siguiente sección">
+      <span>↓</span>
+    </button>
+  </section>
+
+
+
+
+  <!-- ===== POR QUÉ APEX ===== -->
+  <section class="why" id="academia">
+    <div class="container why__grid">
+      <div class="why__intro reveal">
+        <p class="eyebrow">¿Por qué APEX?</p>
+        <h2 class="section-title">Entrenamiento<br />de nivel<br />profesional</h2>
+      </div>
+
+      <div class="why__cards">
+        <article class="why-card reveal">
+          <div class="why-card__icon">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="11" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg>
+          </div>
+          <span class="why-card__num">01</span>
+          <h3 class="why-card__title">Entrenamiento</h3>
+          <p class="why-card__text">Metodologías utilizadas por pilotos y equipos profesionales para desarrollar tu potencial.</p>
+        </article>
+
+        <article class="why-card reveal">
+          <div class="why-card__icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M8 38V26M18 38V16M28 38V22M38 38V10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="why-card__num">02</span>
+          <h3 class="why-card__title">Telemetría</h3>
+          <p class="why-card__text">Aprendé a interpretar datos y tomá decisiones que mejoren cada vuelta.</p>
+        </article>
+
+        <article class="why-card reveal">
+          <div class="why-card__icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M10 6v36M10 6l24 4-6 8 6 8-24 4" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+          </div>
+          <span class="why-card__num">03</span>
+          <h3 class="why-card__title">Competición</h3>
+          <p class="why-card__text">Entrená para competir contra pilotos reales en ligas y campeonatos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ===== COMUNIDAD ===== -->
+  <section class="community" id="comunidad">
+    <div class="container community__grid">
+      <div class="community__text reveal">
+        <p class="eyebrow eyebrow--light">Comunidad APEX</p>
+        <h2 class="section-title text-white">Aprendé junto<br />a otros pilotos</h2>
+
+        <ul class="community__list">
+          <li><span class="dot"></span> Coaching en vivo</li>
+          <li><span class="dot"></span> Sesiones grupales</li>
+          <li><span class="dot"></span> Análisis de carrera</li>
+          <li><span class="dot"></span> Comunidad competitiva</li>
+        </ul>
+
+        <a href="#programas" class="btn btn--lime">Sumate a la comunidad <span class="arrow">→</span></a>
+      </div>
+
+      <div class="community__media reveal">
+        <img src="images/imagen_02.jpg" alt="Grupo de pilotos entrenando juntos en simuladores" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TECNOLOGÍA ===== -->
+  <section class="tech">
+    <div class="container tech__grid">
+      <div class="tech__media reveal">
+        <img src="images/imagen_03.png" alt="Cockpit y simulador de última generación" />
+      </div>
+
+      <div class="tech__text reveal">
+        <p class="eyebrow">Tecnología profesional</p>
+        <h2 class="section-title">Simuladores<br />de última<br />generación</h2>
+
+        <div class="tech__features">
+          <div class="tech-feature">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <span>Force Feedback de alta precisión</span>
+          </div>
+          <div class="tech-feature">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M2 6l10 6 10-6" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span>Triple pantalla envolvente</span>
+          </div>
+          <div class="tech-feature">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v14M8 13l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 21h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <span>Pedales Load Cell</span>
+          </div>
+          <div class="tech-feature">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M5 21c0-4 3-6.5 7-6.5S19 17 19 21" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span>Cockpit ajustable</span>
+          </div>
+          <div class="tech-feature">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-6 4 4 9-10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Telemetría en tiempo real</span>
+          </div>
+          <div class="tech-feature">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 6.9L21 11l-6.6 2.1L12 20l-2.4-6.9L3 11l6.6-2.1L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <span>Coaching personalizado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand strip -->
+    <div class="brandstrip">
+      <div class="brandstrip__track">
+        <span>MOZA RACING</span>
+        <span>FANATEC</span>
+        <span>iRACING</span>
+        <span>ASSETTO CORSA COMPETIZIONE</span>
+        <span>FIA MEMBER</span>
+        <span>MOZA RACING</span>
+        <span>FANATEC</span>
+        <span>iRACING</span>
+        <span>ASSETTO CORSA COMPETIZIONE</span>
+        <span>FIA MEMBER</span>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- =========================================================
+     INSTRUCTORES APEX
+========================================================= -->
+
+<section class="instructors" id="instructores">
+  <div class="container">
+
+    <!-- Encabezado -->
+    <div class="instructors__header reveal">
+      <div class="instructors__heading">
+
+        <p class="eyebrow instructors__eyebrow">
+          Equipo APEX
+        </p>
+
+        <h2 class="instructors__title">
+          Conocé a los<br>
+          instructores
+        </h2>
+
+        <p class="instructors__intro">
+          Experiencia en competición, coaching y análisis de rendimiento
+          para acompañarte en cada etapa del proceso.
+        </p>
+
+      </div>
+
+      <div class="instructors__claim" aria-hidden="true">
+        <span>Experiencia real</span>
+        <strong>Resultados reales</strong>
+      </div>
+    </div>
+
+    <!-- Tarjetas -->
+    <div class="instructors__grid">
+
+      <!-- INSTRUCTOR 01 -->
+      <article
+        class="instructor-card reveal"
+        tabindex="0"
+        data-instructor-card
+      >
+
+        <div class="instructor-card__photo">
+
+          <img
+            src="images/instructor_01.jpg"
+            alt="Facundo Ferreira, coach principal de APEX"
+          >
+
+          <span class="instructor-card__number">
+            01
+          </span>
+
+        </div>
+
+        <div class="instructor-card__content">
+
+          <div class="instructor-card__top">
+
+            <div>
+              <h3>
+                Facundo<br>
+                Ferreira
+              </h3>
+
+              <p class="instructor-card__role">
+                Coach principal
+              </p>
+            </div>
+
+            <span class="instructor-card__toggle" aria-hidden="true">
+              +
+            </span>
+
+          </div>
+
+          <div class="instructor-card__line"></div>
+
+          <p class="instructor-card__description">
+            Especialista en conducción avanzada, técnica de carrera
+            y preparación para competición.
+          </p>
+
+          <div class="instructor-card__stats">
+
+            <div class="instructor-stat">
+
+              <span class="instructor-stat__icon" aria-hidden="true">
+                ◷
+              </span>
+
+              <div>
+                <strong>400 hs</strong>
+                <small>Pilotaje real</small>
+              </div>
+
+            </div>
+
+            <div class="instructor-stat">
+
+              <span class="instructor-stat__icon" aria-hidden="true">
+                ☆
+              </span>
+
+              <div>
+                <strong>7 años</strong>
+                <small>Como instructor</small>
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="instructor-card__specialty">
+            Overtaking, drifting y conducción competitiva.
+          </p>
+        </div>
+      </article>
+
+      <!-- INSTRUCTOR 02 -->
+      <article
+        class="instructor-card reveal"
+        tabindex="0"
+        data-instructor-card
+      >
+        <div class="instructor-card__photo">
+          <img
+            src="images/instructor_02.jpg"
+            alt="Hernán Sena, analista de telemetría de APEX"
+          >
+
+          <span class="instructor-card__number">
+            02
+          </span>
+
+        </div>
+
+        <div class="instructor-card__content">
+
+          <div class="instructor-card__top">
+
+            <div>
+              <h3>
+                Hernán<br>
+                Sena
+              </h3>
+
+              <p class="instructor-card__role">
+                Analista de telemetría
+              </p>
+            </div>
+
+            <span class="instructor-card__toggle" aria-hidden="true">
+              +
+            </span>
+
+          </div>
+
+          <div class="instructor-card__line"></div>
+
+          <p class="instructor-card__description">
+            Especialista en adquisición de datos, configuración del vehículo
+            y análisis de rendimiento.
+          </p>
+
+          <div class="instructor-card__stats">
+
+            <div class="instructor-stat">
+
+              <span class="instructor-stat__icon" aria-hidden="true">
+                ◷
+              </span>
+
+              <div>
+                <strong>350 hs</strong>
+                <small>Pilotaje real</small>
+              </div>
+
+            </div>
+
+            <div class="instructor-stat">
+
+              <span class="instructor-stat__icon" aria-hidden="true">
+                ☆
+              </span>
+
+              <div>
+                <strong>6 años</strong>
+                <small>Como instructor</small>
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="instructor-card__specialty">
+            Técnica de boxes, setup y configuración del vehículo.
+          </p>
+        </div>
+      </article>
+
+      <!-- INSTRUCTOR 03 -->
+      <article
+        class="instructor-card reveal"
+        tabindex="0"
+        data-instructor-card
+      >
+
+        <div class="instructor-card__photo">
+
+          <img
+            src="images/instructor_03.jpg"
+            alt="Antonio Reyes, performance coach de APEX"
+          >
+
+          <span class="instructor-card__number">
+            03
+          </span>
+
+        </div>
+
+        <div class="instructor-card__content">
+
+          <div class="instructor-card__top">
+
+            <div>
+              <h3>
+                Antonio<br>
+                Reyes
+              </h3>
+
+              <p class="instructor-card__role">
+                Performance coach
+              </p>
+            </div>
+
+            <span class="instructor-card__toggle" aria-hidden="true">
+              +
+            </span>
+
+          </div>
+
+          <div class="instructor-card__line"></div>
+
+          <p class="instructor-card__description">
+            Responsable del entrenamiento mental, seguimiento individual
+            y metodologías de alto rendimiento.
+          </p>
+
+          <div class="instructor-card__stats">
+
+            <div class="instructor-stat">
+
+              <span class="instructor-stat__icon" aria-hidden="true">
+                ◷
+              </span>
+
+              <div>
+                <strong>280 hs</strong>
+                <small>Pilotaje real</small>
+              </div>
+
+            </div>
+
+            <div class="instructor-stat">
+
+              <span class="instructor-stat__icon" aria-hidden="true">
+                ☆
+              </span>
+
+              <div>
+                <strong>4 años</strong>
+                <small>Como instructor</small>
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="instructor-card__specialty">
+            Preparación física, pedagogía y rendimiento mental.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+
+
+  
+  <!-- ===== PLANES ===== -->
+  <section class="pricing" id="programas">
+    <div class="container">
+      <div class="pricing__head reveal">
+        <p class="eyebrow">Planes de formación</p>
+        <h2 class="section-title">Elegí tu programa</h2>
+        <p class="pricing__desc">Comenzá desde cero o preparate para competir al máximo nivel.</p>
+      </div>
+
+      <div class="pricing__grid">
+        <article class="plan reveal">
+          <p class="plan__tag">Principiante</p>
+          <h3 class="plan__name">Starter</h3>
+          <p class="plan__price">$150.000</p>
+          <p class="plan__desc">Ideal para dar tus primeros pasos en el Sim Racing.</p>
+          <ul class="plan__list">
+            <li>Introducción al pilotaje</li>
+            <li>Configuración del simulador</li>
+            <li>4 clases</li>
+          </ul>
+          <a href="#" class="plan__cta">Inscribirme <span class="arrow">→</span></a>
+        </article>
+
+        <article class="plan reveal">
+          <p class="plan__tag">Principiante</p>
+          <h3 class="plan__name">Performance</h3>
+          <p class="plan__price">$280.000</p>
+          <p class="plan__desc">Perfeccioná tu técnica y comenzá a competir.</p>
+          <ul class="plan__list">
+            <li>Telemetría básica</li>
+            <li>Coaching grupal</li>
+            <li>8 clases</li>
+          </ul>
+          <a href="#" class="plan__cta">Inscribirme <span class="arrow">→</span></a>
+        </article>
+
+        <article class="plan plan--featured reveal">
+          <p class="plan__badge">Recomendado</p>
+          <p class="plan__tag">Avanzado</p>
+          <h3 class="plan__name">Competitivo</h3>
+          <p class="plan__price">$450.000</p>
+          <p class="plan__desc">Preparación completa para competir en ligas oficiales.</p>
+          <ul class="plan__list">
+            <li>Telemetría avanzada</li>
+            <li>Coaching 1 a 1</li>
+            <li>Preparación de carrera</li>
+          </ul>
+          <a href="detalle.html" class="plan__cta plan__cta--dark">Quiero este <span class="arrow">→</span></a>
+        </article>
+
+        <article class="plan reveal">
+          <p class="plan__tag">Avanzado</p>
+          <h3 class="plan__name">Pro Driver</h3>
+          <p class="plan__price">$700.000</p>
+          <p class="plan__desc">Preparación personalizada para pilotos de alto rendimiento.</p>
+          <ul class="plan__list">
+            <li>Coaching Premium</li>
+            <li>Ingeniería de pista</li>
+            <li>Seguimiento mensual</li>
+          </ul>
+          <a href="#" class="plan__cta">Inscribirme <span class="arrow">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+<!-- =========================================================
+HISTORIA GALERIA
+========================================================= -->
+
+<section class="history" id= "history">
+<div class="container history-grid">
+
+    <!-- IZQUIERDA -->
+
+    <div class="history-info">
+
+        <h2 class="history-title">
+            FORMÁ PARTE DE<br>
+            NUESTRA HISTORIA
+        </h2>
+
+        <div class="history-line">
+
+            <div class="history-item">
+                <span>2026</span>
+                <p>Tu historia espera ser contada.</p>
+            </div>
+
+            <div class="history-item">
+                <span>2025</span>
+                <p>Campeones argentinos de Sim Racing en Esports.</p>
+            </div>
+
+            <div class="history-item">
+                <span>2024</span>
+                <p>Subcampeones mundiales de Fórmula 3 y GT3.</p>
+            </div>
+
+            <div class="history-item">
+                <span>2023</span>
+                <p>Pilotos de APEX comienzan a competir en categorías reales.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DERECHA -->
+
+    <div class="history-gallery">
+
+        <div class="history-main">
+
+            <img id="historyMain"
+                 src="images/imagen_a.jpg">
+
+        </div>
+
+        <div class="history-thumbs">
+
+            <img class="history-thumb active"
+                 src="images/imagen_a.jpg"
+                 data-full="images/imagen_a.jpg">
+
+            <img class="history-thumb"
+                 src="images/imagen_b.jpg"
+                 data-full="images/imagen_b.jpg">
+
+            <img class="history-thumb"
+                 src="images/imagen_c.jpg"
+                 data-full="images/imagen_c.jpg">
+
+            <img class="history-thumb"
+                 src="images/imagen_d.jpg"
+                 data-full="images/imagen_d.jpg">
+
+            <img class="history-thumb"
+                 src="images/imagen_e.jpg"
+                 data-full="images/imagen_e.jpg">
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <p class="eyebrow reveal">Preguntas frecuentes</p>
+
+      <div class="faq__list">
+        <div class="faq-item reveal">
+          <button class="faq-item__q">
+            <span>1. ¿Qué necesito para empezar el curso?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__a">
+            <p>Solo necesitás ganas de aprender. Nosotros ponemos el simulador, el equipo y el plan de entrenamiento adaptado a tu nivel.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-item__q">
+            <span>2. ¿Necesito experiencia previa en Sim Racing?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__a">
+            <p>No. Tenemos programas para principiantes que arrancan desde cero y programas avanzados para pilotos con experiencia.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-item__q">
+            <span>3. ¿Las clases son presenciales u online?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__a">
+            <p>Ofrecemos ambas modalidades: entrenamiento presencial en nuestro centro y coaching online con telemetría compartida.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-item__q">
+            <span>4. ¿Puedo competir en ligas oficiales al terminar?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__a">
+            <p>Sí, los planes Competitivo y Pro Driver incluyen preparación específica para competir en ligas y campeonatos oficiales.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-item__q">
+            <span>5. ¿Qué equipo utilizan en la academia?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__a">
+            <p>Trabajamos con marcas líderes del sector como Moza Racing, Fanatec y simuladores certificados para competición oficial.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-item__q">
+            <span>6. ¿Cómo son los pagos y las cuotas?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__a">
+            <p>Podés abonar cada plan en un pago único o en cuotas. Escribinos y te contamos las opciones disponibles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESO ===== -->
+  <section class="process">
+    <div class="container">
+      <p class="eyebrow eyebrow--light reveal">Tu camino como piloto</p>
+      <h2 class="section-title text-white reveal">Formamos tu futuro</h2>
+
+      <div class="process__grid">
+        <div class="process-step reveal">
+          <span class="process-step__num">01</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l9 4.5L12 11 3 6.5 12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M3 12l9 4.5 9-4.5M3 17.5l9 4.5 9-4.5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <h3>Aprendé los fundamentos</h3>
+          <p>Técnica, consistencia y control del auto.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="process-step__num">02</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V10M11 20V4M18 20v-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>Dominá los datos</h3>
+          <p>Interpretá la telemetría y mejorá tu rendimiento.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="process-step__num">03</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v6M12 22v-4M4.2 10.5a7.8 7.8 0 0015.6 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="10.5" r="2.2" stroke="currentColor" stroke-width="1.6"/></svg>
+          <h3>Competí al máximo nivel</h3>
+          <p>Participá en ligas y eventos oficiales.</p>
+        </div>
+        <div class="process-step reveal">
+          <span class="process-step__num">04</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M10 5v14M10 5l8 3-8 3" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><path d="M4 21h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <h3>Construí tu carrera</h3>
+          <p>Preparación para el salto al automovilismo real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ===== IMAGEN PANORÁMICA ===== -->
+  <section class="process-banner" aria-label="Vista panorámica de la academia APEX">
+    <img
+      src="images/imagen_proceso.jpg"
+      alt="Sala de simuladores profesionales APEX"
+    />
+  </section>
+
+
+
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="cta-final">
+    <div class="container cta-final__inner reveal">
+      <h2 class="cta-final__title">El próximo piloto<br />podrías ser vos.</h2>
+      <p class="cta-final__text">Entrená con metodología profesional, tecnología de élite y una comunidad que te impulsa a crecer.</p>
+      <a href="#programas" class="btn btn--dark">Iniciar carrera <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer__grid">
+
+    <!-- Marca -->
+    <div class="footer__brand">
+      <a href="#" class="logo">
+        <a href="index.html" class="logo">
+         <img src="images/logo_apex.png" alt="APEX Sim Racing Academy">
+        </a>
+      </a>
+
+      <p class="footer__description">
+        Formación profesional en Sim Racing,
+        análisis de rendimiento y desarrollo de pilotos.
+      </p>
+    </div>
+
+    <!-- Navegación -->
+    <div class="footer__column">
+      <h4>Navegación</h4>
+
+      <nav class="footer__links">
+        <a href="#academia">La Academia</a>
+        <a href="#programas">Cursos</a>
+        <a href="#comunidad">Comunidad</a>
+        <a href="#faq">Contacto</a>
+      </nav>
+    </div>
+
+    <!-- Recursos -->
+    <div class="footer__column">
+      <h4>Recursos</h4>
+
+      <a class="footer__ui-btn" href="biblioteca_ui.html">
+        Biblioteca UI
+        <span>↗</span>
+      </a>
+
+      <small class="footer__note">
+        Sistema de diseño, componentes y estilos del proyecto.
+      </small>
+    </div>
+
+    <!-- Redes -->
+    <div class="footer__column">
+      <h4>Seguinos</h4>
+
+      <div class="footer__social">
+
+        <a href="#" aria-label="Instagram">
+          <img src="images/icon-instagram.png" alt="">
+        </a>
+
+        <a href="#" aria-label="YouTube">
+          <img src="images/icon-youtube.png" alt="">
+        </a>
+
+        <a href="#" aria-label="Discord">
+          <img src="images/icon-discord.png" alt="">
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container footer__bottom">
+    <p>© 2025 APEX Sim Racing Academy. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+

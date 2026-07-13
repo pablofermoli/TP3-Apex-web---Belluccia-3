@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APEX — Biblioteca UI</title>
+  <meta name="description" content="Biblioteca visual y sistema de componentes de APEX Sim Racing Academy." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Usa exactamente el mismo CSS general de la web -->
+  <link rel="stylesheet" href="css/style.css" />
+   <!-- fevicon -->
+      <link rel="icon" href="images/fevicom.png" type="image/gif" />
+
+
+  <!-- Estilos exclusivos de esta biblioteca -->
+  <style>
+    .ui-page{
+      --ui-orange:#ff7048;
+      --ui-apple:#b5d128;
+      --ui-mist:#c3d8c5;
+      --ui-charcoal:#3a3a3a;
+      --ui-panel:#1a1a1a;
+      --ui-panel-2:#242424;
+      min-height:100vh;
+      background:var(--black);
+      color:var(--white);
+    }
+
+    .ui-hero{
+      padding:160px 0 88px;
+      border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(circle at 80% 18%,rgba(181,209,40,.12),transparent 27%),
+        radial-gradient(circle at 16% 0%,rgba(255,112,72,.10),transparent 30%),
+        var(--black);
+    }
+
+    .ui-hero__title{
+      max-width:940px;
+      margin:0;
+      font-family:var(--font-display);
+      font-size:clamp(52px,7vw,92px);
+      line-height:1.02;
+      text-transform:uppercase;
+    }
+    .ui-hero__title span{color:var(--ui-orange)}
+
+    .ui-hero__intro{
+      max-width:720px;
+      margin:24px 0 0;
+      font-size:18px;
+      line-height:1.65;
+      color:var(--white-soft);
+    }
+
+    .ui-index{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:36px;
+    }
+
+    .ui-index a{
+      padding:9px 12px;
+      border:1px solid var(--line);
+      font-family:var(--font-mono);
+      font-size:10px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--white-soft);
+      transition:.25s ease;
+    }
+    .ui-index a:hover{border-color:var(--lime);color:var(--lime)}
+
+    .ui-section{
+      padding:96px 0;
+      border-bottom:1px solid var(--line);
+      background:var(--black);
+    }
+    .ui-section--charcoal{background:var(--ui-charcoal)}
+    .ui-section--light{background:var(--paper);color:var(--ink)}
+
+    .ui-section__head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:32px;
+      margin-bottom:48px;
+    }
+
+    .ui-section__title{
+      margin:0;
+      font-family:var(--font-display);
+      font-size:clamp(34px,4vw,54px);
+      line-height:1.08;
+      text-transform:uppercase;
+    }
+
+    .ui-section__note{
+      max-width:520px;
+      margin:0;
+      font-size:15px;
+      line-height:1.65;
+      color:var(--white-soft);
+    }
+    .ui-section--light .ui-section__note{color:var(--ink-soft)}
+
+    .ui-label{
+      display:block;
+      margin-bottom:10px;
+      font-family:var(--font-mono);
+      font-size:10px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--ui-apple);
+    }
+
+    .ui-grid{display:grid;gap:18px}
+    .ui-grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .ui-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .ui-grid--4{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+    /* TIPOGRAFÍA */
+    .ui-type-table{
+      display:grid;
+      gap:1px;
+      background:var(--line);
+      border:1px solid var(--line);
+    }
+
+    .ui-type-row{
+      display:grid;
+      grid-template-columns:170px 170px 1fr;
+      gap:24px;
+      align-items:center;
+      padding:24px;
+      background:var(--ui-panel);
+    }
+
+    .ui-type-meta strong,
+    .ui-type-meta span{
+      display:block;
+    }
+
+    .ui-type-meta strong{
+      font-family:var(--font-display);
+      font-size:14px;
+      text-transform:uppercase;
+      color:var(--white);
+    }
+
+    .ui-type-meta span{
+      margin-top:6px;
+      font-family:var(--font-mono);
+      font-size:10px;
+      color:var(--ui-apple);
+    }
+
+    .ui-type-spec{
+      font-family:var(--font-mono);
+      font-size:11px;
+      line-height:1.5;
+      color:var(--white-soft);
+    }
+
+    .ui-sample-display{font-family:var(--font-display);font-size:88px;line-height:1.02;text-transform:uppercase}
+    .ui-sample-h1{font-family:var(--font-display);font-size:64px;line-height:1.04;text-transform:uppercase}
+    .ui-sample-h2{font-family:var(--font-display);font-size:45px;line-height:1.08;text-transform:uppercase}
+    .ui-sample-h3{font-family:var(--font-display);font-size:24px;line-height:1.15;text-transform:uppercase}
+    .ui-sample-body-lg{font-family:var(--font-body);font-size:18px;line-height:1.65;color:var(--white-soft)}
+    .ui-sample-body{font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--white-soft)}
+    .ui-sample-small{font-family:var(--font-body);font-size:14px;line-height:1.55;color:var(--white-soft)}
+    .ui-sample-eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ui-apple)}
+    .ui-sample-data{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ui-orange)}
+
+    /* COLORES */
+    .ui-color{
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background:var(--ui-panel);
+    }
+    .ui-color__swatch{height:132px}
+    .ui-color__info{padding:18px}
+    .ui-color__info strong{display:block;font-family:var(--font-display);text-transform:uppercase;margin-bottom:6px}
+    .ui-color__info code{font-family:var(--font-mono);font-size:11px;color:var(--white-soft)}
+    .ui-color__info p{margin:10px 0 0;font-size:12px;line-height:1.5;color:var(--white-soft)}
+
+    /* BOTONES */
+    .ui-state-group{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
+      margin-bottom:34px;
+    }
+
+    .ui-state{
+      min-height:150px;
+      padding:20px;
+      border:1px solid var(--line);
+      background:var(--ui-panel);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .ui-state__name{
+      font-family:var(--font-mono);
+      font-size:10px;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:var(--white-soft);
+    }
+
+    .ui-btn-demo{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:48px;
+      padding:14px 24px;
+      border:1px solid transparent;
+      font-family:var(--font-body);
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .ui-btn-primary{background:var(--lime);color:var(--black)}
+    .ui-btn-primary-hover{background:var(--white);color:var(--black);transform:translateY(-2px);box-shadow:0 12px 26px rgba(198,255,4,.18)}
+    .ui-btn-primary-focus{background:var(--lime);color:var(--black);outline:3px solid var(--ui-orange);outline-offset:3px}
+    .ui-btn-primary-disabled{background:#555;color:#999;cursor:not-allowed;opacity:.65}
+
+    .ui-btn-ghost{background:transparent;color:var(--white);border-color:rgba(255,255,255,.35)}
+    .ui-btn-ghost-hover{background:rgba(255,255,255,.08);color:var(--white);border-color:var(--white)}
+    .ui-btn-ghost-focus{background:transparent;color:var(--white);border-color:var(--white);outline:3px solid var(--ui-orange);outline-offset:3px}
+    .ui-btn-ghost-disabled{background:transparent;color:#777;border-color:#555;opacity:.55;cursor:not-allowed}
+
+    .ui-btn-dark{background:var(--black);color:var(--white);border-color:var(--black)}
+    .ui-btn-dark-hover{background:var(--ui-panel-2);color:var(--white);transform:translateY(-2px)}
+    .ui-btn-dark-focus{background:var(--black);color:var(--white);outline:3px solid var(--ui-orange);outline-offset:3px}
+    .ui-btn-dark-disabled{background:#777;color:#aaa;opacity:.55;cursor:not-allowed}
+
+    /* TAGS */
+    .ui-tags{display:flex;flex-wrap:wrap;gap:10px}
+    .ui-tag{
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      padding:6px 10px;
+      border:1px solid var(--line);
+      font-family:var(--font-mono);
+      font-size:10px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .ui-tag--lime{background:var(--lime);border-color:var(--lime);color:var(--black)}
+    .ui-tag--orange{background:var(--ui-orange);border-color:var(--ui-orange);color:var(--black)}
+    .ui-tag--outline{color:var(--white);border-color:var(--ui-apple)}
+    .ui-tag--muted{color:var(--white-soft);background:var(--ui-panel)}
+
+    /* TARJETAS */
+    .ui-card-state{
+      position:relative;
+      min-height:270px;
+      padding:28px;
+      border:1px solid rgba(195,216,197,.14);
+      border-radius:10px;
+      background:var(--ui-panel);
+      overflow:hidden;
+    }
+
+    .ui-card-state__label{
+      display:inline-block;
+      margin-bottom:26px;
+      font-family:var(--font-mono);
+      font-size:10px;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:var(--ui-apple);
+    }
+
+    .ui-card-state h3{
+      margin:0 0 14px;
+      font-family:var(--font-display);
+      font-size:23px;
+      line-height:1.12;
+      text-transform:uppercase;
+    }
+
+    .ui-card-state p{
+      margin:0;
+      font-size:14px;
+      line-height:1.6;
+      color:var(--white-soft);
+    }
+
+    .ui-card-default{border-color:rgba(195,216,197,.14)}
+    .ui-card-hover{transform:translateY(-8px);border-color:var(--ui-apple);box-shadow:0 24px 50px rgba(0,0,0,.32),0 0 28px rgba(181,209,40,.10)}
+    .ui-card-focus{border-color:var(--ui-apple);outline:3px solid var(--ui-orange);outline-offset:3px}
+    .ui-card-featured{background:var(--ui-orange);border-color:var(--ui-orange);color:var(--black)}
+    .ui-card-featured p,.ui-card-featured .ui-card-state__label{color:rgba(10,10,10,.72)}
+    .ui-card-disabled{opacity:.42;filter:grayscale(1)}
+    .ui-card-lime{background:var(--lime);border-color:var(--lime);color:var(--black)}
+    .ui-card-lime p,.ui-card-lime .ui-card-state__label{color:rgba(10,10,10,.72)}
+
+    /* ICONOS */
+    .ui-icon-card{display:flex;align-items:center;gap:18px;padding:22px;border:1px solid var(--line);background:var(--ui-panel)}
+    .ui-icon{width:52px;height:52px;display:grid;place-items:center;flex:0 0 52px;border:1px solid rgba(181,209,40,.35);color:var(--ui-apple)}
+    .ui-icon svg{width:28px;height:28px}
+    .ui-icon-card strong{display:block;font-family:var(--font-display);text-transform:uppercase;margin-bottom:5px}
+    .ui-icon-card span{font-size:12px;color:var(--white-soft)}
+
+    /* FORMULARIOS */
+    .ui-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .ui-field{display:flex;flex-direction:column;gap:8px}
+    .ui-field--wide{grid-column:1/-1}
+    .ui-field label{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ui-apple)}
+    .ui-input,.ui-select,.ui-textarea{
+      width:100%;
+      border:1px solid var(--line);
+      background:var(--ui-panel);
+      color:var(--white);
+      padding:14px 16px;
+      font:500 14px var(--font-body);
+      outline:none;
+    }
+    .ui-input--focus,.ui-select--focus,.ui-textarea--focus{border-color:var(--ui-orange);box-shadow:0 0 0 3px rgba(255,112,72,.14)}
+    .ui-input--disabled{opacity:.5;cursor:not-allowed}
+    .ui-textarea{min-height:120px;resize:vertical}
+
+    /* SUPERFICIES */
+    .ui-surface{
+      min-height:180px;
+      padding:24px;
+      border:1px solid var(--line);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+    .ui-surface strong{font-family:var(--font-display);text-transform:uppercase}
+    .ui-surface span{margin-top:8px;font-family:var(--font-mono);font-size:10px;color:var(--white-soft)}
+    .ui-surface--base{background:var(--black)}
+    .ui-surface--panel{background:var(--ui-panel)}
+    .ui-surface--aura{background:radial-gradient(circle at 80% 20%,rgba(198,255,4,.18),transparent 42%),var(--ui-panel)}
+    .ui-surface--grid{background-color:var(--ui-panel);background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:24px 24px}
+
+    /* TOKENS */
+    .ui-token-box{padding:24px;border:1px solid var(--line);background:var(--ui-panel)}
+    .ui-spacing{display:flex;align-items:flex-end;gap:14px;min-height:150px}
+    .ui-spacing__item{min-width:58px;background:var(--ui-apple);color:var(--black);display:flex;align-items:flex-end;justify-content:center;padding:8px;font-family:var(--font-mono);font-size:10px}
+
+    .ui-radius-row,.ui-shadow-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .ui-radius,.ui-shadow{height:120px;background:var(--ui-panel-2);display:grid;place-items:center;font-family:var(--font-mono);font-size:11px;color:var(--white-soft)}
+    .ui-radius--sm{border-radius:2px}.ui-radius--md{border-radius:10px}.ui-radius--pill{border-radius:999px}
+    .ui-shadow--soft{box-shadow:0 10px 28px rgba(0,0,0,.20)}
+    .ui-shadow--hover{box-shadow:0 24px 50px rgba(0,0,0,.34)}
+    .ui-shadow--accent{box-shadow:0 0 30px rgba(198,255,4,.20)}
+
+    /* RESPONSIVE */
+    .ui-device{
+      padding:24px;
+      border:1px solid var(--line);
+      background:var(--ui-panel);
+    }
+    .ui-device strong{display:block;font-family:var(--font-display);font-size:22px;text-transform:uppercase}
+    .ui-device code{display:block;margin:14px 0;font-family:var(--font-mono);font-size:12px;color:var(--ui-orange)}
+    .ui-device p{margin:0;font-size:14px;line-height:1.6;color:var(--white-soft)}
+
+    .ui-footer-link{color:var(--ui-orange)!important}
+
+    @media(max-width:1000px){
+      .ui-grid--4,.ui-grid--3{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .ui-state-group{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .ui-type-row{grid-template-columns:150px 1fr}
+      .ui-type-row > :last-child{grid-column:1/-1}
+      .ui-section__head{align-items:flex-start;flex-direction:column}
+    }
+
+    @media(max-width:680px){
+      .ui-hero{padding:130px 0 64px}
+      .ui-section{padding:72px 0}
+      .ui-grid--4,.ui-grid--3,.ui-grid--2,.ui-state-group,.ui-form{grid-template-columns:1fr}
+      .ui-type-row{grid-template-columns:1fr}
+      .ui-type-row > :last-child{grid-column:auto}
+      .ui-sample-display{font-size:54px}.ui-sample-h1{font-size:44px}.ui-sample-h2{font-size:34px}
+      .ui-radius-row,.ui-shadow-row{grid-template-columns:1fr}
+      .nav{display:none}
+    }
+  </style>
+</head>
+
+<body class="ui-page">
+  
+  <header class="navbar is-scrolled">
+    <div class="container navbar__inner">
+        <a href="index.html" class="logo">
+         <img src="images/logo_apex.png" alt="APEX Sim Racing Academy">
+        </a>
+    
+
+      <nav class="nav">
+        <a href="#tipografia" class="nav__link">Tipografía</a>
+        <a href="#colores" class="nav__link">Colores</a>
+        <a href="#acciones" class="nav__link">Componentes</a>
+      </nav>
+
+      <a href="index.html" class="btn btn--lime btn--nav">Volver al sitio <span class="arrow">→</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="ui-hero">
+      <div class="container">
+        <p class="eyebrow eyebrow--light">Sistema visual APEX</p>
+        <h1 class="ui-hero__title">Biblioteca<br><span>UI</span></h1>
+        <p class="ui-hero__intro">Referencia central de tipografías, colores, estados, botones, tarjetas, formularios, iconografía y reglas de composición utilizadas en la experiencia digital de APEX.</p>
+
+        <nav class="ui-index" aria-label="Índice de biblioteca">
+          <a href="#principios">Principios</a>
+          <a href="#tipografia">Tipografía</a>
+          <a href="#colores">Colores</a>
+          <a href="#acciones">Botones</a>
+          <a href="#tarjetas">Tarjetas</a>
+          <a href="#iconos">Iconos</a>
+          <a href="#formularios">Formularios</a>
+          <a href="#tokens">Tokens</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="ui-section" id="principios">
+      <div class="container">
+        <div class="ui-section__head">
+          <div><span class="ui-label">00 · Dirección visual</span><h2 class="ui-section__title">Principios</h2></div>
+          <p class="ui-section__note">La interfaz debe sentirse técnica, rápida y precisa sin perder legibilidad ni jerarquía.</p>
+        </div>
+
+        <div class="ui-grid ui-grid--3">
+          <article class="ui-card-state ui-card-default"><span class="ui-card-state__label">01</span><h3>Técnologico</h3><p>La información prioriza lectura, iconografia y textos cortos</p></article>
+          <article class="ui-card-state ui-card-default"><span class="ui-card-state__label">02</span><h3>Sintetico</h3><p>Sistema de tarjetas modulares, graficos geometetricos.</p></article>
+          <article class="ui-card-state ui-card-default"><span class="ui-card-state__label">03</span><h3>Performance</h3><p>La estética comunica competencia, tecnología y mejora medible.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ui-section ui-section--charcoal" id="tipografia">
+      <div class="container">
+        <div class="ui-section__head">
+          <div><span class="ui-label">01 · Voz visual</span><h2 class="ui-section__title">Tipografía y jerarquías</h2></div>
+          <p class="ui-section__note">Orbitron se utiliza en títulos y nombres de componentes. Inter se reserva para lectura. Space Mono identifica cifras, etiquetas y datos técnicos.</p>
+        </div>
+
+        <div class="ui-type-table">
+          <article class="ui-type-row"><div class="ui-type-meta"><strong>Display</strong><span>Títulos hero</span></div><div class="ui-type-spec">Orbitron · 700<br>88 px · line-height 1.02</div><div class="ui-sample-display">Es pilotaje</div></article>
+          <article class="ui-type-row"><div class="ui-type-meta"><strong>Heading 1</strong><span>Título principal</span></div><div class="ui-type-spec">Orbitron · 700<br>64 px · line-height 1.04</div><div class="ui-sample-h1">Programa competitivo</div></article>
+          <article class="ui-type-row"><div class="ui-type-meta"><strong>Heading 2</strong><span>Títulos de sección</span></div><div class="ui-type-spec">Orbitron · 700<br>45 px · line-height 1.08</div><div class="ui-sample-h2">Formamos tu futuro</div></article>
+          <article class="ui-type-row"><div class="ui-type-meta"><strong>Heading 3</strong><span>Tarjetas y módulos</span></div><div class="ui-type-spec">Orbitron · 700<br>24 px · line-height 1.15</div><div class="ui-sample-h3">Telemetría avanzada</div></article>
+          <article class="ui-type-row"><div class="ui-type-meta"><strong>Body Large</strong><span>Bajadas</span></div><div class="ui-type-spec">Inter · 400<br>18 px · line-height 1.65</div><div class="ui-sample-body-lg">Entrenamiento profesional con metodología, tecnología y acompañamiento.</div></article>
+          <article class="ui-type-row"><div class="ui-type-meta"><strong>Body</strong><span>Texto principal</span></div><div class="ui-type-spec">Inter · 400<br>16 px · line-height 1.6</div><div class="ui-sample-body">La información debe ser breve, directa y fácil de recorrer.</div></article>
+          <article class="ui-type-row"><div class="ui-type-meta"><strong>Small</strong><span>Descripciones</span></div><div class="ui-type-spec">Inter · 400<br>14 px · line-height 1.55</div><div class="ui-sample-small">Contenido secundario y notas de apoyo.</div></article>
+          <article class="ui-type-row"><div class="ui-type-meta"><strong>Eyebrow</strong><span>Etiqueta superior</span></div><div class="ui-type-spec">Space Mono · 700<br>12 px · tracking .14em</div><div class="ui-sample-eyebrow">Comunidad APEX</div></article>
+          <article class="ui-type-row"><div class="ui-type-meta"><strong>Data</strong><span>Cifras y métricas</span></div><div class="ui-type-spec">Space Mono · 700<br>11 px · tracking .08em</div><div class="ui-sample-data">48 horas · Nivel avanzado</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ui-section" id="colores">
+      <div class="container">
+        <div class="ui-section__head">
+          <div><span class="ui-label">02 · Identidad</span><h2 class="ui-section__title">Paleta cromática</h2></div>
+          <p class="ui-section__note">El negro y el carbón construyen la base. El lima indica acción, el naranja crea jerarquía y el gris celestino aporta contraste suave.</p>
+        </div>
+
+        <div class="ui-grid ui-grid--4">
+          <article class="ui-color"><div class="ui-color__swatch" style="background:#0a0a0a"></div><div class="ui-color__info"><strong>Black</strong><code>#0A0A0A</code><p>Fondos principales y hero.</p></div></article>
+          <article class="ui-color"><div class="ui-color__swatch" style="background:#3a3a3a"></div><div class="ui-color__info"><strong>Charcoal</strong><code>#3A3A3A</code><p>Secciones técnicas y fondos secundarios.</p></div></article>
+          <article class="ui-color"><div class="ui-color__swatch" style="background:#c6ff04"></div><div class="ui-color__info"><strong>Lime</strong><code>#C6FF04</code><p>CTA, indicadores y acciones prioritarias.</p></div></article>
+          <article class="ui-color"><div class="ui-color__swatch" style="background:#ff7048"></div><div class="ui-color__info"><strong>Orange</strong><code>#FF7048</code><p>Palabras destacadas y estados de foco.</p></div></article>
+          <article class="ui-color"><div class="ui-color__swatch" style="background:#b5d128"></div><div class="ui-color__info"><strong>Apple</strong><code>#B5D128</code><p>Iconos y señalización secundaria.</p></div></article>
+          <article class="ui-color"><div class="ui-color__swatch" style="background:#c3d8c5"></div><div class="ui-color__info"><strong>Mist</strong><code>#C3D8C5</code><p>Contraste suave y superficies claras.</p></div></article>
+          <article class="ui-color"><div class="ui-color__swatch" style="background:#f5f4f0"></div><div class="ui-color__info"><strong>Paper</strong><code>#F5F4F0</code><p>Fondos claros y FAQ.</p></div></article>
+          <article class="ui-color"><div class="ui-color__swatch" style="background:#f7f7f5"></div><div class="ui-color__info"><strong>White</strong><code>#F7F7F5</code><p>Títulos y textos de alto contraste.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ui-section ui-section--charcoal" id="acciones">
+      <div class="container">
+        <div class="ui-section__head">
+          <div><span class="ui-label">03 · Acciones</span><h2 class="ui-section__title">Botones y estados</h2></div>
+          <p class="ui-section__note">Todos los estados se muestran de forma permanente para documentar el sistema sin interacción.</p>
+        </div>
+
+        <span class="ui-label">Botón principal</span>
+        <div class="ui-state-group">
+          <article class="ui-state"><span class="ui-state__name">Default</span><span class="ui-btn-demo ui-btn-primary">Iniciar carrera →</span></article>
+          <article class="ui-state"><span class="ui-state__name">Hover</span><span class="ui-btn-demo ui-btn-primary-hover">Iniciar carrera →</span></article>
+          <article class="ui-state"><span class="ui-state__name">Focus</span><span class="ui-btn-demo ui-btn-primary-focus">Iniciar carrera →</span></article>
+          <article class="ui-state"><span class="ui-state__name">Disabled</span><span class="ui-btn-demo ui-btn-primary-disabled">Iniciar carrera →</span></article>
+        </div>
+
+        <span class="ui-label">Botón secundario</span>
+        <div class="ui-state-group">
+          <article class="ui-state"><span class="ui-state__name">Default</span><span class="ui-btn-demo ui-btn-ghost">Ver programa</span></article>
+          <article class="ui-state"><span class="ui-state__name">Hover</span><span class="ui-btn-demo ui-btn-ghost-hover">Ver programa</span></article>
+          <article class="ui-state"><span class="ui-state__name">Focus</span><span class="ui-btn-demo ui-btn-ghost-focus">Ver programa</span></article>
+          <article class="ui-state"><span class="ui-state__name">Disabled</span><span class="ui-btn-demo ui-btn-ghost-disabled">Ver programa</span></article>
+        </div>
+
+        <span class="ui-label">Botón oscuro sobre fondo claro</span>
+        <div class="ui-state-group">
+          <article class="ui-state"><span class="ui-state__name">Default</span><span class="ui-btn-demo ui-btn-dark">Consultar →</span></article>
+          <article class="ui-state"><span class="ui-state__name">Hover</span><span class="ui-btn-demo ui-btn-dark-hover">Consultar →</span></article>
+          <article class="ui-state"><span class="ui-state__name">Focus</span><span class="ui-btn-demo ui-btn-dark-focus">Consultar →</span></article>
+          <article class="ui-state"><span class="ui-state__name">Disabled</span><span class="ui-btn-demo ui-btn-dark-disabled">Consultar →</span></article>
+        </div>
+
+        <span class="ui-label">Tags</span>
+        <div class="ui-tags">
+          <span class="ui-tag ui-tag--lime">Curso más elegido</span>
+          <span class="ui-tag ui-tag--orange">Avanzado</span>
+          <span class="ui-tag ui-tag--outline">12 semanas</span>
+          <span class="ui-tag ui-tag--muted">Certificación APEX</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="ui-section" id="tarjetas">
+      <div class="container">
+        <div class="ui-section__head">
+          <div><span class="ui-label">04 · Componentes</span><h2 class="ui-section__title">Tarjetas y variantes</h2></div>
+          <p class="ui-section__note">Los estados visuales están congelados para que puedan compararse en la misma pantalla.</p>
+        </div>
+
+        <div class="ui-grid ui-grid--3">
+          <article class="ui-card-state ui-card-default"><span class="ui-card-state__label">Default</span><h3>Tarjeta base</h3><p>Superficie oscura, borde discreto y jerarquía neutra.</p></article>
+          <article class="ui-card-state ui-card-hover"><span class="ui-card-state__label">Hover</span><h3>Tarjeta activa</h3><p>Elevación, borde verde y sombra ampliada.</p></article>
+          <article class="ui-card-state ui-card-focus"><span class="ui-card-state__label">Focus</span><h3>Navegación por teclado</h3><p>Contorno naranja visible y contraste suficiente.</p></article>
+          <article class="ui-card-state ui-card-featured"><span class="ui-card-state__label">Destacada</span><h3>Plan competitivo</h3><p>El naranja resalta contenidos prioritarios.</p></article>
+          <article class="ui-card-state ui-card-lime"><span class="ui-card-state__label">Conversión</span><h3>CTA de alto impacto</h3><p>El lima se reserva para decisiones clave.</p></article>
+          <article class="ui-card-state ui-card-disabled"><span class="ui-card-state__label">Disabled</span><h3>No disponible</h3><p>Menor opacidad y ausencia de jerarquía activa.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ui-section ui-section--charcoal" id="iconos">
+      <div class="container">
+        <div class="ui-section__head">
+          <div><span class="ui-label">05 · Recursos</span><h2 class="ui-section__title">Iconografía</h2></div>
+          <p class="ui-section__note">Iconos lineales, fondo transparente, trazo de 1.5–2 px y color verde manzana o lima.</p>
+        </div>
+
+        <div class="ui-grid ui-grid--3">
+          <article class="ui-icon-card"><div class="ui-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V10M11 20V4M18 20v-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div><div><strong>Telemetría</strong><span>Datos y rendimiento</span></div></article>
+          <article class="ui-icon-card"><div class="ui-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M10 5v14M10 5l8 3-8 3M4 21h14" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div><strong>Competición</strong><span>Carrera y objetivos</span></div></article>
+          <article class="ui-icon-card"><div class="ui-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l9 4.5L12 11 3 6.5 12 2zM3 12l9 4.5 9-4.5M3 17.5l9 4.5 9-4.5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><div><strong>Formación</strong><span>Módulos y progreso</span></div></article>
+          <article class="ui-icon-card"><div class="ui-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div><div><strong>Duración</strong><span>Horas y semanas</span></div></article>
+          <article class="ui-icon-card"><div class="ui-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 18V8l7-4 7 4v10l-7 3-7-3zM9 12h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div><div><strong>Certificación</strong><span>Validación APEX</span></div></article>
+          <article class="ui-icon-card"><div class="ui-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="10" r="2.3" stroke="currentColor" stroke-width="1.6"/><path d="M3 20c0-4 2.8-6 6-6s6 2 6 6M14 15c3 0 5 1.7 5 5" stroke="currentColor" stroke-width="1.6"/></svg></div><div><strong>Comunidad</strong><span>Equipo y coaching</span></div></article>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="ui-section ui-section--charcoal">
+      <div class="container">
+        <div class="ui-section__head"><div><span class="ui-label">07 · Profundidad</span><h2 class="ui-section__title">Superficies y efectos</h2></div><p class="ui-section__note">Recursos discretos que agregan profundidad sin competir con el contenido.</p></div>
+        <div class="ui-grid ui-grid--4">
+          <article class="ui-surface ui-surface--base"><strong>Base</strong><span>#0A0A0A</span></article>
+          <article class="ui-surface ui-surface--panel"><strong>Panel</strong><span>#1A1A1A</span></article>
+          <article class="ui-surface ui-surface--aura"><strong>Aura</strong><span>Luz radial lima</span></article>
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="ui-section" id="tokens">
+      <div class="container">
+        <div class="ui-section__head"><div><span class="ui-label">08 · Tokens</span><h2 class="ui-section__title">Espaciado, radios y sombras</h2></div><p class="ui-section__note">Una escala limitada ayuda a sostener consistencia entre páginas y resoluciones.</p></div>
+
+        <div class="ui-grid ui-grid--2">
+          <article class="ui-token-box"><span class="ui-label">Escala de espaciado</span><div class="ui-spacing"><div class="ui-spacing__item" style="height:16px">8</div><div class="ui-spacing__item" style="height:28px">16</div><div class="ui-spacing__item" style="height:44px">24</div><div class="ui-spacing__item" style="height:62px">32</div><div class="ui-spacing__item" style="height:92px">64</div><div class="ui-spacing__item" style="height:128px">96</div></div></article>
+          <article class="ui-token-box"><span class="ui-label">Radios</span><div class="ui-radius-row"><div class="ui-radius ui-radius--sm">2 px</div><div class="ui-radius ui-radius--md">10 px</div><div class="ui-radius ui-radius--pill">999 px</div></div></article>
+          <article class="ui-token-box ui-field--wide"><span class="ui-label">Sombras</span><div class="ui-shadow-row"><div class="ui-shadow ui-shadow--soft">Suave</div><div class="ui-shadow ui-shadow--hover">Hover</div><div class="ui-shadow ui-shadow--accent">Acento</div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ui-section ui-section--charcoal">
+      <div class="container">
+        <div class="ui-section__head"><div><span class="ui-label">09 · Responsive</span><h2 class="ui-section__title">dos escalas</h2></div><p class="ui-section__note">Los componentes se reorganizan sin perder jerarquía, contraste ni identidad.</p></div>
+        <div class="ui-grid ui-grid--3">
+          <article class="ui-device"><strong>Desktop</strong><code>≥ 1081 px</code><p>Grillas amplias, cuatro columnas y efectos de hover.</p></article>
+         
+          <article class="ui-device"><strong>Mobile</strong><code>≤ 680 px</code><p>Una columna, acciones a todo el ancho y jerarquía simplificada.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand"><a href="index.html" class="logo">
+      <img src="images/logo_apex.png" alt="APEX Sim Racing Academy">
+    </a></div>
+      <nav class="footer__links"><a href="index.html">Inicio</a><a href="detalle.html">Programa</a><a href="biblioteca_ui.html" class="ui-footer-link">Biblioteca UI</a></nav>
+      <div class="footer__social">
+
+        <a href="#" aria-label="Instagram">
+          <img src="images/icon-instagram.png" alt="">
+        </a>
+
+        <a href="#" aria-label="YouTube">
+          <img src="images/icon-youtube.png" alt="">
+        </a>
+
+        <a href="#" aria-label="Discord">
+          <img src="images/icon-discord.png" alt="">
+        </a>
+
+      </div>
+    </div>
+    <div class="container footer__bottom"><p>© 2025 APEX Sim Racing Academy. Biblioteca de interfaz.</p></div>
+  </footer>
+</body>
+</html>
